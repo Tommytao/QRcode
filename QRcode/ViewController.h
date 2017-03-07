@@ -10,7 +10,7 @@
 #import <CoreImage/CoreImage.h>
 
 @interface ViewController : UIViewController
-
+-(IBAction)FieldDoneEditing:(id)sender;
 
 @end
 

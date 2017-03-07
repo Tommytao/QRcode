@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UIImageView *imageview;
 @property (strong, nonatomic) IBOutlet UILabel *Timeview;
+@property (strong, nonatomic) IBOutlet UITextField *SeatIDText;
 
 @end
 
@@ -18,13 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     NSString *dataString = @"这是一个二维码的生成结果";
-    
-    [self startGCDTimer];
+    //[self startGCDTimer];
 }
 
 
 
+- (IBAction)refreshBtn:(UIButton *)sender {
+    [self startGCDTimer];
+}
 
 -(void)creatQRcode:(NSString*)datastring{
 
@@ -88,9 +90,17 @@
             NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
             NSTimeInterval a=[dat timeIntervalSince1970];
             NSString * timeString = [NSString stringWithFormat:@"%0.f", a];//转为字符型
-            NSString * seatID = @"1";
-            NSString * QRcodeString = [NSString stringWithFormat:@"%@,%@",timeString,seatID];
+            NSString * seatID = _SeatIDText.text;
+            int intSeatID = [seatID intValue];
+            int intTime = [timeString intValue];
+            int QRcodeInt1 = ((intTime/3600)+3)*6;
+            int QRcodeInt2 = ((intTime/3600)+intSeatID)*5;
+            NSString *QRcodestring1 = [NSString stringWithFormat:@"%d",QRcodeInt1];
+            NSString *QRcodestring2 = [NSString stringWithFormat:@"%d",QRcodeInt2];
+            NSString * QRcodeString = [NSString stringWithFormat:@"%@,%@",QRcodestring1,QRcodestring2];
+            
             [self creatQRcode:QRcodeString];
+            
             //刷新时间
             NSDate *currentDate = [NSDate date];
             // 实例化日期格式
@@ -115,6 +125,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)background:(id)sender
+{
+    [self.SeatIDText resignFirstResponder];
+}
+-(IBAction)FieldDoneEditing:(id)sender{
+    [sender resignFirstResponder];
+    [self startGCDTimer];
+}
 
 @end
