@@ -210,6 +210,7 @@
 				TargetAttributes = {
 					6559C8721E6E79A000B3F132 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GYALTS3C8F;
 						ProvisioningStyle = Automatic;
 					};
 					6559C88E1E6E79A000B3F132 = {
@@ -426,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GYALTS3C8F;
 				INFOPLIST_FILE = QRcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tommy.QRcode;
@@ -437,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GYALTS3C8F;
 				INFOPLIST_FILE = QRcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Tommy.QRcode;
